@@ -41,7 +41,12 @@ namespace JekyllLinkPost
 
             public void Add(PocketItem item)
             {
-                LinkCategory link = Lookup(item.Tags[0]);
+                LinkCategory link = null;
+                if (item.Tags.Length > 0)
+                {
+                    link = Lookup(item.Tags[0]); 
+                }
+
                 if (link == null)
                 {
                     link = Lookup("unknown");
